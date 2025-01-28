@@ -1,5 +1,6 @@
 
  let listaAmigos = [];
+ let amigoSorteado = [];
 
 function agregarAmigo(){
     //Obtenemos el nombre del amigo 
@@ -28,5 +29,26 @@ function amigoHtml(lista){
      
 }
 
+function sortearAmigo(){
 
+    //Validar que haya amigos disponibles: Antes de sortear, comprobar si el array amigos no está vacío.
+
+    let listaSorteados = document.getElementById('resultado');
+    let numIndice = Math.floor(Math.random()*listaAmigos.length);
+    if (amigoSorteado.length >= listaAmigos.length) {
+        alert("Todos los amigos han sido sorteados.");
+        return;
+    }else{
+        if (amigoSorteado.includes(listaAmigos[numIndice])){
+            return sortearAmigo();
+        }else{
+            amigoSorteado.push(listaAmigos[numIndice]);
+            listaSorteados.innerHTML += `<li>${listaAmigos[numIndice]}</li>`;
+        }
+    }
+
+
+}
+
+   
     
