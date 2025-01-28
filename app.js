@@ -1,27 +1,32 @@
 
- let amigos = [];
+ let listaAmigos = [];
 
-function agregarAamigo(){
-    let nombreAmigo = document.getElementById('amigo');
+function agregarAmigo(){
+    //Obtenemos el nombre del amigo 
+    let nombreAmigo = document.getElementById('amigo').value;
     if (nombreAmigo == ''){
         alert('Ingresa un Nombre para continuar');
     }else{
-        amigos.push(nombreAmigo);
-    }
- 
+        listaAmigos.push(nombreAmigo);
+        //Restablece a una caja vacia
+        document.getElementById('amigo').value = ''; 
+        //se llama a la funcion para ser postramada en pantalla
+        amigoHtml(listaAmigos);
+    } 
 
 }
- //Capturar el valor del campo de entrada: Utilizar 
- // document.getElementById o document.querySelector 
- // para obtener el texto ingresado por el usuario.
 
 
-//Validar la entrada: Implementar una validación para 
-// asegurarse de que el campo no esté vacío. Si está vacío, 
-// mostrar un alert con un mensaje de error: "Por favor, inserte un nombre."
+function amigoHtml(lista){
+    let listaHTML = document.getElementById('listaAmigos');
+     // inicia la lista en blanco para no tener duplicados
+     listaHTML.innerHTML = '';
+    //recorre todo el array y lo agrega a nuestro elemnto html
+    for (let i = 0; i < lista.length; i++) {
+        listaHTML.innerHTML += `<li>${lista[i]}</li>`;
+      }
+     
+}
 
-//Actualizar el array de amigos: Si el valor es válido, 
-// añadirlo al arreglo que almacena los nombre de amigos usando el método.push().
 
-//Limpiar el campo de entrada: Después de añadir el nombre, 
-// restablecer el campo de texto a una cadena vacía
+    
