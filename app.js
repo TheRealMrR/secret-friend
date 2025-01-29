@@ -50,6 +50,15 @@ function sortearAmigo(){
         }
     }
 
-
 }
 
+function reiniciarSorteo() {
+    // Vaciar la lista de amigos sorteados
+    amigoSorteado = [];
+
+    // Limpiar la lista en la interfaz
+    document.getElementById('resultado').innerHTML = '';
+    document.getElementById('listaAmigos').innerHTML = '';
+
+    alert("El sorteo ha sido reiniciado. Puedes volver a iniciar.");
+}
